@@ -16,9 +16,9 @@ public class DataCell : MonoBehaviour
 
     public string CellText => buttonText.text;
 
-    private void Awake()
+    public void Init(string str)
     {
-        inputField.gameObject.SetActive(false);
+        buttonText.text = str;
     }
     public void ActiveInputFiled()
     {
@@ -31,6 +31,8 @@ public class DataCell : MonoBehaviour
         buttonText.text = inputField.text;
         inputField.gameObject.SetActive(false);
     }
+
+    
    
 
 }
