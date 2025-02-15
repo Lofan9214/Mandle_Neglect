@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 3266391356928158243}
   - component: {fileID: 8002764675692231611}
   m_Layer: 5
-  m_Name: UiGameObject
+  m_Name: DataCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
