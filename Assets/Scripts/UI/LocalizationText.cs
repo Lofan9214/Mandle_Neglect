@@ -45,7 +45,7 @@ public class LocalizationText : MonoBehaviour
         var stringTable = DataTableManager.Get<StringTable>(stringTableId);
         if (int.TryParse(stringId, out int id))
         {
-            if (unFormatedString.Length > 0)
+            if (unFormatedString != null && unFormatedString.Length > 0)
                 text.text = string.Format(stringTable.Get(id), unFormatedString);
             else
                 text.text = stringTable.Get(id);
@@ -55,6 +55,7 @@ public class LocalizationText : MonoBehaviour
     public void SetString(string stringId)
     {
         this.stringId = stringId;
+        unFormatedString = null;
         OnEnable();
     }
 

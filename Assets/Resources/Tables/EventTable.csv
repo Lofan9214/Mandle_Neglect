@@ -1,0 +1,2 @@
+ID,Type,ProbabilityMin,ProbabilityMax,Script,TargetTable,TargetTableId
+100001,0,0.35,0.45,ResourceEventTable,100001

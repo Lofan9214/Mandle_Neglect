@@ -28,6 +28,21 @@ public static class DataTableManager
         var resourceTableId = DataTableIds.Resource;
         resourceTable.Load(resourceTableId);
         tables.Add(resourceTableId, resourceTable);
+
+        //var eventTable = new EventTable();
+        //var eventTableId = DataTableIds.Event;
+        //eventTable.Load(eventTableId);
+        //tables.Add(eventTableId, eventTable);
+        //
+        //var resourceEventTable = new ResourceEventTable();
+        //var resourceEventTableId = DataTableIds.ResourceEvent;
+        //resourceEventTable.Load(resourceEventTableId);
+        //tables.Add(resourceEventTableId, resourceEventTable);
+        //
+        //var signalTable = new SignalTable();
+        //var signalTableId = DataTableIds.Signal;
+        //signalTable.Load(signalTableId);
+        //tables.Add(signalTableId, signalTable);
     }
 
     public static T Get<T>(string id) where T : DataTable
