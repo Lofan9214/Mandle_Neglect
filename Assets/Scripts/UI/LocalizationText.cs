@@ -41,7 +41,7 @@ public class LocalizationText : MonoBehaviour
 #endif
     }
 
-    public void OnChangedLanguage(Languages lang)
+    public virtual void OnChangedLanguage(Languages lang)
     {
         var stringTableId = DataTableIds.String[(int)lang];
         var stringTable = DataTableManager.Get<StringTable>(stringTableId);
