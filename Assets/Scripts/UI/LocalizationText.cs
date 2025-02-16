@@ -5,8 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class LocalizationText : MonoBehaviour
 {
-    public string stringId;
-    public string[] unFormatedString;
+    [SerializeField]
+    protected string stringId;
+    [SerializeField]
+    protected string[] stringArgs;
 
 #if UNITY_EDITOR
     public Languages editorLang;
@@ -20,12 +22,12 @@ public class LocalizationText : MonoBehaviour
         set => text.enabled = value;
     }
 
-    private void Awake()
+    protected void Awake()
     {
         text = GetComponent<TextMeshProUGUI>();
     }
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         if (Application.isPlaying)
         {
@@ -45,8 +47,8 @@ public class LocalizationText : MonoBehaviour
         var stringTable = DataTableManager.Get<StringTable>(stringTableId);
         if (int.TryParse(stringId, out int id))
         {
-            if (unFormatedString != null && unFormatedString.Length > 0)
-                text.text = string.Format(stringTable.Get(id), unFormatedString);
+            if (stringArgs != null && stringArgs.Length > 0)
+                text.text = string.Format(stringTable.Get(id), stringArgs);
             else
                 text.text = stringTable.Get(id);
         }
@@ -55,13 +57,13 @@ public class LocalizationText : MonoBehaviour
     public void SetString(string stringId)
     {
         this.stringId = stringId;
-        unFormatedString = null;
+        stringArgs = null;
         OnEnable();
     }
 
     public void SetString(string[] str)
     {
-        unFormatedString = str;
+        stringArgs = str;
         OnEnable();
     }
 
@@ -74,12 +76,12 @@ public class LocalizationText : MonoBehaviour
     public void SetString(string stringId, int[] strIds)
     {
         this.stringId = stringId;
-        unFormatedString = new string[strIds.Length];
+        stringArgs = new string[strIds.Length];
         var stringTableId = DataTableIds.String[(int)Variables.currentLanguage];
         var stringTable = DataTableManager.Get<StringTable>(stringTableId);
         for (int i = 0; i < strIds.Length; ++i)
         {
-            unFormatedString[i] = stringTable.Get(strIds[i]);
+            stringArgs[i] = stringTable.Get(strIds[i]);
         }
         OnEnable();
     }

@@ -8,12 +8,22 @@ public class EventTable : DataTable
     public class Data
     {
         public int ID { get; set; }
-        public int Type { get; set; }
-        public float ProbabilityMin { get; set; }
-        public float ProbabilityMax { get; set; }
+        public EventTypeTable.EventType Type { get; set; }
         public int Script { get; set; }
-        public string TargetTable { get; set; }
-        public int TargetTableId { get; set; }
+        public int RelativeProbability { get; set; }
+        public string DetailedType { get; set; }
+        public int AcceptScript { get; set; }
+
+        /// <summary>
+        /// 타겟값#수량_타겟값#수량 생각중
+        /// </summary>
+        public string AcceptResult { get; set; }
+        public int NeglectScript { get; set; }
+
+        /// <summary>
+        /// 타겟값#수량_타겟값#수량 생각중
+        /// </summary>
+        public string NeglectResult { get; set; }
     }
 
     private Dictionary<int, Data> dict = new Dictionary<int, Data>();
@@ -51,5 +61,10 @@ public class EventTable : DataTable
     public Data[] GetValues()
     {
         return dict.Values.ToArray();
+    }
+
+    public Data[] GetValues(EventTypeTable.EventType type)
+    {
+        return dict.Values.Where(p => p.Type == type).ToArray();
     }
 }

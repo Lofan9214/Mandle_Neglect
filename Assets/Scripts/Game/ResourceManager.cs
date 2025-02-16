@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    enum ResourceType
+    public enum ResourceType
     {
         Food,
         ElectricalEnergy,
