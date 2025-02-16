@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DataRow : MonoBehaviour
 {
-    private List<DataCell> cells;
+    public List<DataCell> cells;
+
+    public DataCell cellPrefab;
 
 }
