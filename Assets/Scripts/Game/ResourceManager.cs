@@ -7,16 +7,15 @@ public class ResourceManager : MonoBehaviour
     public enum ResourceType
     {
         Food,
-        ElectricalEnergy,
+        Energy,
         Oxygen,
     }
 
-    public int food { get; private set; }
+    public int Food { get; private set; }
 
-    public int electricEnergy { get; private set; }
-    public int oxygen { get; private set; }
+    public int Energy { get; private set; }
+    public int Oxygen { get; private set; }
 
-    private ResourceType currentResourceType;
 
 
     public void Init()
@@ -26,22 +25,23 @@ public class ResourceManager : MonoBehaviour
 
     public void NextTurn()
     {
-        food -= 1;
-        oxygen -= 2;
-        electricEnergy -= 1;
+        Food -= 1;
+        Energy -= 1;
+        Oxygen -= 2;
     }
 
     public void AddResource(ResourceType type,int value)
     {
-        currentResourceType = type;
-        switch (currentResourceType)
+        switch (type)
         {
             case ResourceType.Food:
-
+                Food += value;
                 break;
-            case ResourceType.ElectricalEnergy:
+            case ResourceType.Energy:
+                Energy += value;
                 break;
             case ResourceType.Oxygen:
+                Oxygen += value;
                 break;
             default:
                 break;
