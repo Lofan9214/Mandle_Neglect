@@ -14,6 +14,7 @@ public class DataTableIds
         //"StringTableJp",
     };
 
+    public const string Resource = "ResourceTable";
 }
 
 public class Variables

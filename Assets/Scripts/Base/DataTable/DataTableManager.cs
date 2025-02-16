@@ -23,6 +23,11 @@ public static class DataTableManager
         table.Load(stringTableId);
         tables.Add(stringTableId, table);
 #endif
+
+        var resourceTable = new ResourceTable();
+        var resourceTableId = DataTableIds.Resource;
+        resourceTable.Load(resourceTableId);
+        tables.Add(resourceTableId, resourceTable);
     }
 
     public static T Get<T>(string id) where T : DataTable
