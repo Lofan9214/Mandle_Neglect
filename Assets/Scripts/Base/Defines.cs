@@ -16,7 +16,7 @@ public class DataTableIds
 
     public const string Resource = "ResourceTable";
     public const string Event = "EventTable";
-    public const string ResourceEvent = "ResourceEventTable";
+    public const string EventType = "EventTypeTable";
     public const string Signal = "SignalTable";
 }
 

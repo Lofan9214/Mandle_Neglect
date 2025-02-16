@@ -34,10 +34,10 @@ public static class DataTableManager
         //eventTable.Load(eventTableId);
         //tables.Add(eventTableId, eventTable);
         //
-        //var resourceEventTable = new ResourceEventTable();
-        //var resourceEventTableId = DataTableIds.ResourceEvent;
-        //resourceEventTable.Load(resourceEventTableId);
-        //tables.Add(resourceEventTableId, resourceEventTable);
+        //var eventTypeTable = new EventTypeTable();
+        //var eventTypeTableId = DataTableIds.EventType;
+        //eventTypeTable.Load(eventTypeTableId);
+        //tables.Add(eventTypeTableId, eventTypeTable);
         //
         //var signalTable = new SignalTable();
         //var signalTableId = DataTableIds.Signal;
@@ -60,6 +60,30 @@ public static class DataTableManager
         get
         {
             return Get<StringTable>(DataTableIds.String[(int)Variables.currentLanguage]);
+        }
+    }
+
+    public static ResourceTable ResourceTable
+    {
+        get
+        {
+            return Get<ResourceTable>(DataTableIds.Resource);
+        }
+    }
+
+    public static EventTypeTable EventTypeTable
+    {
+        get
+        {
+            return Get<EventTypeTable>(DataTableIds.EventType);
+        }
+    }
+
+    public static EventTable EventTable
+    {
+        get
+        {
+            return Get<EventTable>(DataTableIds.Event);
         }
     }
 }

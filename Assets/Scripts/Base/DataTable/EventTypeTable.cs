@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ResourceEventTable : DataTable
+public class EventTypeTable : DataTable
 {
     public class Data
     {
         public int ID { get; set; }
-        public int Type { get; set; }
-        public int Amount { get; set; }
+        public EventType Type { get; set; }
+        public float ProbabilityMin { get; set; }
+        public float ProbabilityMax { get; set; }
+    }
+
+    public enum EventType
+    { 
+        Signal,
+        BreakDown,
+        Resource
     }
 
     private Dictionary<int, Data> dict = new Dictionary<int, Data>();
