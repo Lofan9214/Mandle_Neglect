@@ -20,14 +20,16 @@ public class ResourceManager : MonoBehaviour
 
     public void Init()
     {
-
+        Food = DataTableManager.ResourceTable.Get(ResourceType.Food).StartQuantity;
+        Energy = DataTableManager.ResourceTable.Get(ResourceType.Energy).StartQuantity;
+        Oxygen = DataTableManager.ResourceTable.Get(ResourceType.Oxygen).StartQuantity;
     }
 
     public void NextTurn()
     {
-        Food -= 1;
-        Energy -= 1;
-        Oxygen -= 2;
+        Food -= DataTableManager.ResourceTable.Get(ResourceType.Food).TurnUsage;
+        Energy -= DataTableManager.ResourceTable.Get(ResourceType.Energy).TurnUsage;
+        Oxygen  -= DataTableManager.ResourceTable.Get(ResourceType.Oxygen).TurnUsage;
     }
 
     public void AddResource(ResourceType type,int value)
