@@ -81,7 +81,7 @@ public class EventManager : MonoBehaviour
 
         foreach (var res in results)
         {
-            var items = res.Split('#');
+            var items = res.Split('#');            
 
             if (Enum.TryParse<ResourceManager.ResourceType>(items[0], true, out ResourceManager.ResourceType type)
                 && int.TryParse(items[1], out int quantity))
@@ -90,4 +90,6 @@ public class EventManager : MonoBehaviour
             }
         }
     }
+
+
 }

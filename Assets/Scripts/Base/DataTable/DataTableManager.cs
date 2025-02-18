@@ -29,20 +29,20 @@ public static class DataTableManager
         resourceTable.Load(resourceTableId);
         tables.Add(resourceTableId, resourceTable);
 
-        //var eventTable = new EventTable();
-        //var eventTableId = DataTableIds.Event;
-        //eventTable.Load(eventTableId);
-        //tables.Add(eventTableId, eventTable);
-        //
-        //var eventTypeTable = new EventTypeTable();
-        //var eventTypeTableId = DataTableIds.EventType;
-        //eventTypeTable.Load(eventTypeTableId);
-        //tables.Add(eventTypeTableId, eventTypeTable);
-        //
-        //var signalTable = new SignalTable();
-        //var signalTableId = DataTableIds.Signal;
-        //signalTable.Load(signalTableId);
-        //tables.Add(signalTableId, signalTable);
+        var eventTable = new EventTable();
+        var eventTableId = DataTableIds.Event;
+        eventTable.Load(eventTableId);
+        tables.Add(eventTableId, eventTable);
+        
+        var eventTypeTable = new EventTypeTable();
+        var eventTypeTableId = DataTableIds.EventType;
+        eventTypeTable.Load(eventTypeTableId);
+        tables.Add(eventTypeTableId, eventTypeTable);
+        
+        var signalTable = new SignalTable();
+        var signalTableId = DataTableIds.Signal;
+        signalTable.Load(signalTableId);
+        tables.Add(signalTableId, signalTable);
     }
 
     public static T Get<T>(string id) where T : DataTable
