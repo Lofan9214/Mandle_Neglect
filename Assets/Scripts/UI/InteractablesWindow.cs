@@ -10,6 +10,8 @@ public class InteractablesWindow : MonoBehaviour
 
     [SerializeField] private float nextDayEnableDelay = 1f;
 
+    public Button[] devices;
+
     private void Start()
     {
         AddListeners();
@@ -18,6 +20,9 @@ public class InteractablesWindow : MonoBehaviour
     private void AddListeners()
     {
         nextDayButton.onClick.AddListener(OnClickNextDay);
+        devices[0].onClick.AddListener(OnClickOxygenGenerator);
+        devices[1].onClick.AddListener(OnClickPowerGenerator);
+        devices[2].onClick.AddListener(OnClickTransmitter);
     }
 
     private void OnClickNextDay()
@@ -25,6 +30,22 @@ public class InteractablesWindow : MonoBehaviour
         uiManager.gameManager.NextTurn();
         //nextDayButton.interactable = false;
         //StartCoroutine(EnableNextDayButtonWithDelay(nextDayEnableDelay));
+    }
+
+    // temp methods
+    public void OnClickOxygenGenerator()
+    {
+
+    }
+
+    public void OnClickPowerGenerator()
+    {
+
+    }
+
+    public void OnClickTransmitter()
+    {
+
     }
 
     private IEnumerator EnableNextDayButtonWithDelay(float delay)

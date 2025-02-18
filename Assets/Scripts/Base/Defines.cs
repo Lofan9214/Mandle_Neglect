@@ -24,3 +24,17 @@ public class Variables
 {
     public static Languages currentLanguage = Languages.Korean;
 }
+
+public static class GameInfos
+{
+    public static readonly int initialTurn = 1;
+    public static readonly int lastTurn = 22;
+
+
+}
+public enum ResourceType
+{
+    Food,
+    Energy,
+    Oxygen,
+}

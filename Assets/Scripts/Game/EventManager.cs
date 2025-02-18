@@ -16,7 +16,7 @@ public class EventManager : MonoBehaviour
     public EventTable.Data CurrentEvent { get; private set; }
     public bool EventExists { get; private set; }
 
-    public UnityEvent<ResourceManager.ResourceType, int> OnResourceChange;
+    public UnityEvent<ResourceType, int> OnResourceChange;
     public UnityEvent<int> OnEventScript;
 
     public void Random(float ratio)
@@ -83,7 +83,7 @@ public class EventManager : MonoBehaviour
         {
             var items = res.Split('#');            
 
-            if (Enum.TryParse<ResourceManager.ResourceType>(items[0], true, out ResourceManager.ResourceType type)
+            if (Enum.TryParse<ResourceType>(items[0], true, out ResourceType type)
                 && int.TryParse(items[1], out int quantity))
             {
                 OnResourceChange.Invoke(type, quantity);

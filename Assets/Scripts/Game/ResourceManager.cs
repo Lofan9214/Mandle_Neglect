@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public enum ResourceType
-    {
-        Food,
-        Energy,
-        Oxygen,
-    }
-
     public int Food { get; private set; }
 
     public int Energy { get; private set; }

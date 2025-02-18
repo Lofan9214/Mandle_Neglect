@@ -7,6 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int currentTurn;
+    [SerializeField] private int health = 100;
 
     public float Ratio
     {
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
     {
         Init();
     }
-
+    
     private void Init()
     {
         resourceManager.Init();
@@ -44,11 +45,56 @@ public class GameManager : MonoBehaviour
         currentTurn++;
         resourceManager.NextTurn();
         eventManager.Random(Ratio);
-        if(eventManager.EventExists)
+        if(CheckGameOver())
+        { }
+        else if(eventManager.EventExists)
         {
             PopUpEventChoice();
         }
         UpdateUiContents();
+    }
+
+    private bool CheckGameOver()
+    {
+        if(resourceManager.Food < 0)
+        {
+            PopUpGameOverMessage(ResourceType.Food);
+            return true;
+        }
+        if (resourceManager.Energy < 0)
+        {
+            PopUpGameOverMessage(ResourceType.Energy);
+            return true;
+        }
+        if (resourceManager.Oxygen < 0)
+        {
+            PopUpGameOverMessage(ResourceType.Oxygen);
+            return true;
+        }
+        return false;
+    }
+
+
+    public void PopUpGameOverMessage(ResourceType type)
+    {
+        uiManager.messageWindow.gameObject.SetActive(true);
+        uiManager.messageWindow.SetupResult();
+        int gameOverStringId;
+        switch (type)
+        {
+            case ResourceType.Food:
+                gameOverStringId = 11111111;
+                //uiManager.messageWindow.centerMessage.SetString(gameOverStringId);
+                break;
+            case ResourceType.Energy:
+                gameOverStringId = 22222222;
+                //uiManager.messageWindow.centerMessage.SetString(gameOverStringId);
+                break;
+            case ResourceType.Oxygen:
+                gameOverStringId = 33333333;
+                //uiManager.messageWindow.centerMessage.SetString(gameOverStringId);
+                break;
+        }
     }
 
     public void PopUpEventChoice()
