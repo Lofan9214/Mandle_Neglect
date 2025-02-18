@@ -21,12 +21,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private EventManager eventManager;
 
-    public void Awake()
+    private void Awake()
     {
         resourceManager = GetComponent<ResourceManager>();
         eventManager = GetComponent<EventManager>();
         currentTurn = GameInfos.initialTurn;
         UpdateUiContents();
+    }
+
+    private void Start()
+    {
+        Init();
+    }
+
+    private void Init()
+    {
+        resourceManager.Init();
     }
 
     public void NextTurn()
