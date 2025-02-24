@@ -9,7 +9,7 @@ public class ResourceTable : DataTable
     {
         public int ID { get; set; }
         public int NameId { get; set; }
-        public ResourceManager.ResourceType Type { get; set; }
+        public ResourceType Type { get; set; }
         public int StartQuantity { get; set; }
         public int TurnUsage { get; set; }
     }
@@ -46,7 +46,7 @@ public class ResourceTable : DataTable
         return dict[key];
     }
 
-    public Data Get(ResourceManager.ResourceType type)
+    public Data Get(ResourceType type)
     {
         var data = GetValues().Where(p => p.Type == type).FirstOrDefault();
         return data;

@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class DataRow : MonoBehaviour
 {
+    [SerializeField]
+    private DataCell cellPrefab;
+
     public List<DataCell> cells;
 
-    public DataCell cellPrefab;
-
+    public void SetCells(string[] celldata)
+    {
+        for (int i = 0; i < celldata.Length; ++i)
+        {
+            var cell = Instantiate(cellPrefab, transform);
+            cell.Init(celldata[i]);
+            cells.Add(cell);
+        }
+    }
 }

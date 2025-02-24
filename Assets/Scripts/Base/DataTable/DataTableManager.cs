@@ -33,12 +33,12 @@ public static class DataTableManager
         var eventTableId = DataTableIds.Event;
         eventTable.Load(eventTableId);
         tables.Add(eventTableId, eventTable);
-        
+
         var eventTypeTable = new EventTypeTable();
         var eventTypeTableId = DataTableIds.EventType;
         eventTypeTable.Load(eventTypeTableId);
         tables.Add(eventTypeTableId, eventTypeTable);
-        
+
         var signalTable = new SignalTable();
         var signalTableId = DataTableIds.Signal;
         signalTable.Load(signalTableId);

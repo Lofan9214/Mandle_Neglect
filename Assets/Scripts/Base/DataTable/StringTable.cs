@@ -41,4 +41,6 @@ public class StringTable : DataTable
         }
         return dict[key];
     }
+
+    public Dictionary<int, string> GetAllData() => dict;
 }

@@ -58,6 +58,8 @@ public class EventTable : DataTable
         return dict[key];
     }
 
+    public Dictionary<int, Data> GetAllData() => dict;
+
     public Data[] GetValues()
     {
         return dict.Values.ToArray();

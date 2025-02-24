@@ -16,7 +16,7 @@ public class EventManager : MonoBehaviour
     public EventTable.Data CurrentEvent { get; private set; }
     public bool EventExists { get; private set; }
 
-    public UnityEvent<ResourceManager.ResourceType, int> OnResourceChange;
+    public UnityEvent<ResourceType, int> OnResourceChange;
     public UnityEvent<int> OnEventScript;
 
     public void Random(float ratio)
