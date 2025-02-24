@@ -48,12 +48,8 @@ public class ResourceTable : DataTable
 
     public Data Get(ResourceManager.ResourceType type)
     {
-        var array= GetValues().Where(p => p.Type == type).ToArray();
-        if (array.Length==0)
-        {
-            return null;
-        }
-        return array[0];
+        var data = GetValues().Where(p => p.Type == type).FirstOrDefault();
+        return data;
     }
 
     public Data[] GetValues()

@@ -83,13 +83,11 @@ public class EventManager : MonoBehaviour
         {
             var items = res.Split('#');            
 
-            if (Enum.TryParse<ResourceManager.ResourceType>(items[0], true, out ResourceManager.ResourceType type)
+            if (Enum.TryParse(items[0], true, out ResourceManager.ResourceType type)
                 && int.TryParse(items[1], out int quantity))
             {
-                OnResourceChange.Invoke(type, quantity);
+                OnResourceChange?.Invoke(type, quantity);
             }
         }
     }
-
-
 }
